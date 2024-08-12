@@ -1,0 +1,2 @@
+# doomconf
+doom emacs config
