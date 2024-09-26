@@ -41,3 +41,13 @@
   (add-hook 'post-command-hook #'nb/refontify-on-linemove nil t))
 
 (add-hook 'markdown-mode-hook #'nb/markdown-unhighlight)
+
+;; headers settings
+(custom-set-faces!
+  '(markdown-header-delimiter-face :foreground "#616161" :height 0.9)
+  '(markdown-header-face-1 :height 1.5 weight extra-bold :inherit markdown-header-face)
+  '(markdown-header-face-2 :height 1.4 weight extra-bold :inherit markdown-header-face)
+  '(markdown-header-face-3 :height 1.2 weight extra-bold :inherit markdown-header-face)
+  '(markdown-header-face-4 :height 1.15 weight bold :inherit markdown-header-face)
+  '(markdown-header-face-5 :height 1.1 weight bold :inherit markdown-header-face)
+  '(markdown-header-face-6 :height 1.05 weight semi-bold :inherit markdown-header-face))
