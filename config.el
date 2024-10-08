@@ -99,3 +99,11 @@
 
 (require 'org-superstar)
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+
+;; dashboard settings
+(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
+(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-footer)
+(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-loaded)
+(setq fancy-splash-image (concat doom-user-dir "lenin3.svg"))
+(add-hook! '+doom-dashboard-functions :append
+  (insert "\n" (+doom-dashboard--center +doom-dashboard--width "Пролетарии всех стран, соединяйтесь!")))
