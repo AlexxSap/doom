@@ -97,8 +97,8 @@
 ;; comments
 (map! "C-/" #'comment-line)
 
-(require 'org-superstar)
-(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+;; (require 'org-superstar)
+;; (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
 ;; dashboard settings
 (remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
@@ -107,3 +107,4 @@
 (setq fancy-splash-image (concat doom-user-dir "lenin3.svg"))
 (add-hook! '+doom-dashboard-functions :append
   (insert "\n" (+doom-dashboard--center +doom-dashboard--width "Пролетарии всех стран, соединяйтесь!")))
+
