@@ -108,3 +108,12 @@
 (add-hook! '+doom-dashboard-functions :append
   (insert "\n" (+doom-dashboard--center +doom-dashboard--width "Пролетарии всех стран, соединяйтесь!")))
 
+;; org settings
+;; source code pretty
+(setq org-src-fontify-natively t)
+;; begin and end block smaller
+(custom-set-faces
+ '(org-block-begin-line
+   ((t (:height 0.8 :extend t :weight bold))))
+ '(org-block-end-line
+   ((t (:height 0.8 :extend t :weight bold)))))
