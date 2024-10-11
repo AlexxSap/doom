@@ -111,9 +111,22 @@
 ;; org settings
 ;; source code pretty
 (setq org-src-fontify-natively t)
+
 ;; begin and end block smaller
 (custom-set-faces
  '(org-block-begin-line
    ((t (:height 0.8 :extend t :weight bold))))
  '(org-block-end-line
    ((t (:height 0.8 :extend t :weight bold)))))
+
+;; set headers size
+(defun my-org-faces ()
+  (set-face-attribute 'org-level-1 nil :height 1.2)
+  (set-face-attribute 'org-level-2 nil :height 1.2)
+  (set-face-attribute 'org-level-3 nil :height 1.2)
+  (set-face-attribute 'org-level-4 nil :height 1.2))
+(add-hook 'org-mode-hook #'my-org-faces)
+
+(map! :leader
+      (:prefix ("t")
+       :desc "pretty org mode" "o" #'+org-pretty-mode))
