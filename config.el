@@ -111,6 +111,9 @@
 ;; org settings
 ;; source code pretty
 (setq org-src-fontify-natively t)
+(setq flycheck-mode-hook -1)
+(setq flymake-mode-hook -1)
+(setq flymake-mode -1)
 
 ;; begin and end block smaller
 (custom-set-faces

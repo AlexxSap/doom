@@ -10,7 +10,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-block-begin-line ((t (:height 0.8 :extend t :weight bold))))
+ '(org-block-end-line ((t (:height 0.8 :extend t :weight bold)))))
 (defvar nb/current-line '(0 . 0)
   "(start . end) of current line in current buffer")
 (make-variable-buffer-local 'nb/current-line)
