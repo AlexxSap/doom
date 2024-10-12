@@ -130,3 +130,8 @@
 (map! :leader
       (:prefix ("t")
        :desc "pretty org mode" "o" #'+org-pretty-mode))
+
+;; eshell toggle keys
+(map! :leader
+      :desc "Eshell"                 "e s" #'eshell
+      :desc "Eshell popup toggle"    "e t" #'+eshell/toggle)
