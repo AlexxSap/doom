@@ -1,5 +1,13 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
+(setq user-login-name "AlexxSap"
+      user-mail-address "alexxandrsap@mail.ru")
+
+(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 16))
+
+;; disable exit confirmation
+(setq confirm-kill-emacs nil)
+
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-gruvbox)
 
@@ -57,6 +65,9 @@
   (set-face-attribute 'org-level-3 nil :height 1.2)
   (set-face-attribute 'org-level-4 nil :height 1.2))
 (add-hook 'org-mode-hook #'my-org-faces)
+
+;; hide Org markup indicators.
+(after! org (setq org-hide-emphasis-markers t))
 
 (map! :leader
       (:prefix ("t")
