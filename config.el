@@ -67,7 +67,8 @@
 
 (map! :leader
       (:prefix ("t")
-       :desc "pretty org mode" "o" #'+org-pretty-mode))
+       :desc "pretty org mode" "o" #'+org-pretty-mode
+       :desc "pretty marknown mode" "m" #'nb/markdown-unhighlight))
 
 ;; eshell toggle keys
 (map! :leader
