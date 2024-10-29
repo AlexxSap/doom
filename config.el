@@ -48,11 +48,11 @@
 (setq org-src-fontify-natively t)
 
 ;; begin and end block smaller
-(custom-set-faces
- '(org-block-begin-line
-   ((t (:height 0.8 :extend t :weight bold))))
- '(org-block-end-line
-   ((t (:height 0.8 :extend t :weight bold)))))
+;; (custom-set-faces
+;; '(org-block-begin-line
+;; ((t (:height 0.8 :extend t :weight bold))))
+;; '(org-block-end-line
+;; ((t (:height 0.8 :extend t :weight bold)))))
 
 ;; set headers size
 (defun my-org-faces ()
@@ -78,3 +78,75 @@
 ;; disable flymake - not support c++20 and 23
 (setq flymake-start-on-flymake-mode nil)
 (setq flymake-start-on-save-buffer nil)
+
+;;this block replace standart #+begin_ and #+end_ blocks with some icons
+(with-eval-after-load 'org
+  (defvar-local rc/org-at-src-begin -1
+    "Variable that holds whether last position was a ")
+
+  (defvar rc/ob-header-symbol ?☰
+    "Symbol used for babel headers")
+
+  (defun rc/org-prettify-src--update ()
+    (let ((case-fold-search t)
+          (re "^[ \t]*#\\+begin_src[ \t]+[^ \f\t\n\r\v]+[ \t]*")
+          found)
+      (save-excursion
+        (goto-char (point-min))
+        (while (re-search-forward re nil t)
+          (goto-char (match-end 0))
+          (let ((args (org-trim
+                       (buffer-substring-no-properties (point)
+                                                       (line-end-position)))))
+            (when (org-string-nw-p args)
+              (let ((new-cell (cons args rc/ob-header-symbol)))
+                (cl-pushnew new-cell prettify-symbols-alist :test #'equal)
+                (cl-pushnew new-cell found :test #'equal)))))
+        (setq prettify-symbols-alist
+              (cl-set-difference prettify-symbols-alist
+                                 (cl-set-difference
+                                  (cl-remove-if-not
+                                   (lambda (elm)
+                                     (eq (cdr elm) rc/ob-header-symbol))
+                                   prettify-symbols-alist)
+                                  found :test #'equal)))
+        ;; Clean up old font-lock-keywords.
+        (font-lock-remove-keywords nil prettify-symbols--keywords)
+        (setq prettify-symbols--keywords (prettify-symbols--make-keywords))
+        (font-lock-add-keywords nil prettify-symbols--keywords)
+        (while (re-search-forward re nil t)
+          (font-lock-flush (line-beginning-position) (line-end-position))))))
+
+  (defun rc/org-prettify-src ()
+    "Hide src options via `prettify-symbols-mode'.
+
+  `prettify-symbols-mode' is used because it has uncollpasing. It's
+  may not be efficient."
+    (let* ((case-fold-search t)
+           (at-src-block (save-excursion
+                           (beginning-of-line)
+                           (looking-at "^[ \t]*#\\+begin_src[ \t]+[^ \f\t\n\r\v]+[ \t]*"))))
+      ;; Test if we moved out of a block.
+      (when (or (and rc/org-at-src-begin
+                     (not at-src-block))
+                ;; File was just opened.
+                (eq rc/org-at-src-begin -1))
+        (rc/org-prettify-src--update))
+      (setq rc/org-at-src-begin at-src-block)))
+
+  (defun rc/org-prettify-symbols ()
+    (mapc (apply-partially 'add-to-list 'prettify-symbols-alist)
+          (cl-reduce 'append
+                     (mapcar (lambda (x) (list x (cons (upcase (car x)) (cdr x))))
+                             `(("#+begin_src" . ?✎) ;;
+                               ("#+end_src"   .?✎) ;;
+                               ("#+header:" . ,rc/ob-header-symbol)
+                               ("#+begin_quote" . ?»)
+                               ("#+end_quote" . ?«)))))
+    (turn-on-prettify-symbols-mode)
+    (add-hook 'post-command-hook 'rc/org-prettify-src t t))
+  (add-hook 'org-mode-hook #'rc/org-prettify-symbols))
+
+;; Org-mode spec
+(add-hook 'org-mode-hook (lambda ()
+                           (rc/org-prettify-symbols)))
