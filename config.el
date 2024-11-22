@@ -69,6 +69,10 @@
       (:prefix ("t")
        :desc "pretty org mode" "o" #'+org-pretty-mode
        :desc "pretty marknown mode" "m" #'nb/markdown-unhighlight))
+;; add create file key for dired
+(map! :leader
+      (:prefix ("f")
+       :desc "create empty file" "t" #'dired-create-empty-file))
 
 ;; eshell toggle keys
 (map! :leader
