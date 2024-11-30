@@ -4,7 +4,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(markdown-mode)))
+ '(package-selected-packages
+   '(haskell-tab-indent flymake-haskell-multi lsp-haskell markdown-mode)))
 
 (defvar nb/current-line '(0 . 0)
   "(start . end) of current line in current buffer")
@@ -47,3 +48,9 @@
   '(markdown-header-face-4 :height 1.15 weight bold :inherit markdown-header-face)
   '(markdown-header-face-5 :height 1.1 weight bold :inherit markdown-header-face)
   '(markdown-header-face-6 :height 1.05 weight semi-bold :inherit markdown-header-face))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

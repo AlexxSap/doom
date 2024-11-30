@@ -20,6 +20,16 @@
 ;;instal lsp package
 (require 'lsp-mode)
 
+
+(require 'lsp)
+(require 'lsp-haskell)
+;; Hooks so haskell and literate haskell major modes trigger LSP setup
+(add-hook 'haskell-mode-hook #'lsp)
+(add-hook 'haskell-literate-mode-hook #'lsp)
+(setq haskell-stylish-on-save t)
+(after! lsp-haskell
+  (setq lsp-haskell-formatting-provider "brittany"))
+
 ;; hooks for golang - format and add imports on save
 (add-hook 'go-mode-hook #'lsp-deferred)
 (defun lsp-go-install-save-hooks ()
