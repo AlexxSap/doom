@@ -93,6 +93,8 @@
 (setq flymake-start-on-flymake-mode nil)
 (setq flymake-start-on-save-buffer nil)
 
+(setq org-export-babel-evaluate nil)
+
 ;;this block replace standart #+begin_ and #+end_ blocks with some icons
 (with-eval-after-load 'org
   (defvar-local rc/org-at-src-begin -1

@@ -5,7 +5,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(haskell-tab-indent flymake-haskell-multi lsp-haskell markdown-mode)))
+   '(haskell-ts-mode haskell-tab-indent flymake-haskell-multi lsp-haskell markdown-mode)))
 
 (defvar nb/current-line '(0 . 0)
   "(start . end) of current line in current buffer")
