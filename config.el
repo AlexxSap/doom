@@ -20,15 +20,12 @@
 ;;instal lsp package
 (require 'lsp-mode)
 
-
 (require 'lsp)
 (require 'lsp-haskell)
 ;; Hooks so haskell and literate haskell major modes trigger LSP setup
 (add-hook 'haskell-mode-hook #'lsp)
 (add-hook 'haskell-literate-mode-hook #'lsp)
 (setq haskell-stylish-on-save t)
-(after! lsp-haskell
-  (setq lsp-haskell-formatting-provider "brittany"))
 
 ;; hooks for golang - format and add imports on save
 (add-hook 'go-mode-hook #'lsp-deferred)
@@ -51,7 +48,11 @@
 (remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-loaded)
 (setq fancy-splash-image (concat doom-user-dir "lenin3.svg"))
 (add-hook! '+doom-dashboard-functions :append
-  (insert "\n" (+doom-dashboard--center +doom-dashboard--width "Пролетарии всех стран, соединяйтесь!")))
+  (insert "\n" (+doom-dashboard--center +doom-dashboard--width
+                                        "                        И новое солнце встаёт величаво,
+                        Неся человечеству новую жизнь,
+                        Солнце свободы, солнце славы,
+                        Имя которому - коммунизм!")))
 
 ;; org settings
 ;; source code pretty
