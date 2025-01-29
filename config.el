@@ -160,3 +160,13 @@
 ;; Org-mode spec
 (add-hook 'org-mode-hook (lambda ()
                            (rc/org-prettify-symbols)))
+(defun surround-word-with-quotes ()
+  "Surround the word at point with double quotes."
+  (interactive)
+  (let ((bounds (bounds-of-thing-at-point 'symbol)))
+    (when bounds
+      (goto-char (car bounds))
+      (insert "\"")
+      (goto-char (+ 1 (cdr bounds)))
+      (insert "\""))))
+(global-set-key (kbd "C-c q") 'surround-word-with-quotes)
