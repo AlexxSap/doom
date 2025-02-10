@@ -170,3 +170,9 @@
       (goto-char (+ 1 (cdr bounds)))
       (insert "\""))))
 (global-set-key (kbd "C-c q") 'surround-word-with-quotes)
+
+;; add image support. Press C-c C-c on line or M-x org-redisplay-inline-images
+;; example
+;; #+ATTR_ORG: :width 800 :height 400 :align center
+;; [[file:/home/user/images/example.png]]
+(setq org-startup-with-inline-images t)
