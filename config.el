@@ -171,6 +171,28 @@
       (insert "\""))))
 (global-set-key (kbd "C-c q") 'surround-word-with-quotes)
 
+(defun surround-word-with-asterisk ()
+  "Surround the word at point with asterisk."
+  (interactive)
+  (let ((bounds (bounds-of-thing-at-point 'symbol)))
+    (when bounds
+      (goto-char (car bounds))
+      (insert "*")
+      (goto-char (+ 1 (cdr bounds)))
+      (insert "*"))))
+(global-set-key (kbd "C-c a") 'surround-word-with-asterisk)
+
+(defun surround-word-with-eq ()
+  "Surround the word at point with =."
+  (interactive)
+  (let ((bounds (bounds-of-thing-at-point 'symbol)))
+    (when bounds
+      (goto-char (car bounds))
+      (insert "=")
+      (goto-char (+ 1 (cdr bounds)))
+      (insert "="))))
+(global-set-key (kbd "C-c e") 'surround-word-with-eq)
+
 ;; add image support. Press C-c C-c on line or M-x org-redisplay-inline-images
 ;; example
 ;; #+ATTR_ORG: :width 800 :height 400 :align center
