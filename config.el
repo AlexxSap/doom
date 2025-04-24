@@ -83,7 +83,7 @@
       :desc "Eshell"                 "e s" #'eshell
       :desc "Eshell popup toggle"    "e t" #'+eshell/toggle)
 
-;; eshell toggle keys
+;; show todos keys
 (map! :leader
       :desc "Show TODOs"    "c T" #'hl-todo-occur)
 
