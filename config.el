@@ -198,3 +198,9 @@
 ;; #+ATTR_ORG: :width 800 :height 400 :align center
 ;; [[file:/home/user/images/example.png]]
 (setq org-startup-with-inline-images t)
+
+;; hide/show code blocks
+(global-set-key (kbd "C-c h") 'hs-hide-block)
+(global-set-key (kbd "C-c s") 'hs-show-block)
+(global-set-key (kbd "C-c H") 'hs-hide-all)
+(global-set-key (kbd "C-c S") 'hs-show-all)
