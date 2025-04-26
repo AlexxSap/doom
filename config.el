@@ -83,10 +83,6 @@
       :desc "Eshell"                 "e s" #'eshell
       :desc "Eshell popup toggle"    "e t" #'+eshell/toggle)
 
-;; show todos keys
-(map! :leader
-      :desc "Show TODOs"    "c T" #'hl-todo-occur)
-
 ;; disable flymake - not support c++20 and 23
 (setq flymake-start-on-flymake-mode nil)
 (setq flymake-start-on-save-buffer nil)
