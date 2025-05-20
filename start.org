@@ -1,0 +1,51 @@
+#+title: Start
+
+* terminal
+|---------+-----------------------|
+| SPC o t | toggle terminal popup |
+| SPC o T | open terminal         |
+| SPC e s | open eshell           |
+| SPC e t | open eshell popup     |
+|---------+-----------------------|
+* files
+|---------+---------------------------|
+| SPC f r | find a recent file        |
+| SPC f f | find file                 |
+| C-x d   | dired                     |
+| SPC s d | fuzzy find in current dir |
+| SPC s i | jump to symbol            |
+|---------+---------------------------|
+* git
+|-------------+----------------|
+| SPC g g     | open magit     |
+| SPC c c     | start commit   |
+| SPC C-c C-c | end commit     |
+| SPC F p     | pull           |
+| SPC p p     | push to origin |
+|-------------+----------------|
+* buffers and windows
+|---------------+------------------|
+| SPC b i       | ibuffer          |
+| SPC b b       | switch buffer    |
+| SPC b k       | kill buffer      |
+| SPC w s       | split horizontal |
+| SPC w v       | split vertical   |
+| SPC w c       | close window     |
+| SPC w h/j/k/l | goto window      |
+| SPC w H/J/K/L | move window      |
+|---------------+------------------|
+* code
+|---------+---------------------|
+| SPC c d | find definition     |
+| SPC c D | find references     |
+| SPC c i | find implementation |
+| SPC c r | rename symbol       |
+| SPC c x | list errors         |
+| SPC p . | brouse project      |
+| SPC p T | show todos          |
+|---------+---------------------|
+* org
+|-----------+----------------|
+| SPC i s   | insert snippet |
+| shift tab | toggle tree    |
+|-----------+----------------|
