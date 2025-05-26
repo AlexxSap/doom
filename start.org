@@ -16,16 +16,16 @@
 | SPC s i | jump to symbol            |
 |---------+---------------------------|
 * dired
-|-------+---------------|
-| R     | rename        |
-| C     | copy          |
-| D     | delete        |
-| J     | goto file     |
-| Z     | compress      |
-| M-RET | display file  |
-| +     | create dir    |
-| F     | advanced mode |
-|-------+---------------|
+|-------+-----------------------|
+| R     | rename                |
+| C     | copy                  |
+| D     | delete                |
+| J     | goto file             |
+| Z     | compress              |
+| M-RET | display file          |
+| +     | create dir            |
+| F     | dirvish-layout-toggle |
+|-------+-----------------------|
 * git
 |-------------+----------------|
 | SPC g g     | open magit     |
