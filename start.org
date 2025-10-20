@@ -52,11 +52,18 @@
 | SPC c i | find implementation |
 | SPC c r | rename symbol       |
 | SPC c x | list errors         |
-| SPC p . | brouse project      |
+| SPC p . | browse project      |
 | SPC p T | show todos          |
+| C-c h   | hide block          |
+| C-c s   | show block          |
+| C-c H   | hide all blocks     |
+| C-c S   | show all blocks     |
 |---------+---------------------|
 * org
-|-----------+----------------|
-| SPC i s   | insert snippet |
-| shift tab | toggle tree    |
-|-----------+----------------|
+|-----------+-----------------|
+| SPC i s   | insert snippet  |
+| shift tab | toggle tree     |
+| C-c e     | surround with = |
+| C-c a     | surround with * |
+| C-c q     | surrount with " |
+|-----------+-----------------|
