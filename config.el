@@ -41,13 +41,11 @@
 (remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-loaded)
 (setq fancy-splash-image (concat doom-user-dir "lenin3.svg"))
 (add-hook! '+doom-dashboard-functions :append
-           ;; (insert "\n" (+doom-dashboard--center +doom-dashboard--width
-           ;; "                        И новое солнце встаёт величаво,
-           ;; Неся человечеству новую жизнь,
-           ;; Солнце свободы, солнце славы,
-           ;; Имя которому - коммунизм!")))
-           (insert "\n" (+doom-dashboard--center +doom-dashboard--width
-                                                 "Лёд сломан")))
+  (insert "\n" (+doom-dashboard--center +doom-dashboard--width
+                                        "                        И новое солнце встаёт величаво,
+                        Неся человечеству новую жизнь,
+                        Солнце свободы, солнце славы,
+                        Имя которому - коммунизм!")))
 
 ;; org settings
 ;; source code pretty
