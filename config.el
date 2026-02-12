@@ -226,3 +226,17 @@
 ;; Register hooks with org-present
 (add-hook 'org-present-mode-hook 'my/org-present-start)
 (add-hook 'org-present-mode-quit-hook 'my/org-present-end)
+
+;; haskell settings
+;; lsp for haskell
+;; (require 'lsp-haskell)
+;; hooks for doc and indentation
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook #'lsp)
+(add-hook 'haskell-literate-mode-hook #'lsp)
+;; format on save
+(setq haskell-stylish-on-save t)
+
+;; Для Haskell включите проверку hlint
+(add-hook 'haskell-mode-hook #'flycheck-mode)
