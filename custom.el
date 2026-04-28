@@ -5,7 +5,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(company company-box company-org-block flymake-haskell-multi haskell-tab-indent
+   '(company company-box company-org-block flymake-haskell-multi haskell-tab-indent flycheck-haskell
      haskell-ts-mode lsp-haskell markdown-mode org-present org-tree-slide
      pdf-tools protobuf-mode visual-fill-column)))
 
