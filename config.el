@@ -223,6 +223,9 @@
   (visual-fill-column-mode 0)
   (visual-line-mode 0))
 
+;; maximize on startup
+(add-hook 'window-setup-hook #'toggle-frame-maximized)
+
 ;; Register hooks with org-present
 (add-hook 'org-present-mode-hook 'my/org-present-start)
 (add-hook 'org-present-mode-quit-hook 'my/org-present-end)
