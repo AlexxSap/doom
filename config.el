@@ -3,7 +3,7 @@
 (setq user-login-name "AlexxSap"
       user-mail-address "alexxandrsap@mail.ru")
 
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 16))
+;; (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 16))
 
 ;; disable exit confirmation
 (setq confirm-kill-emacs nil)
@@ -30,7 +30,8 @@
 ;; keys for dired navigation
 (evil-define-key 'normal dired-mode-map
   (kbd "l") 'dired-find-file
-  (kbd "h") 'dired-up-directory)
+  (kbd "h") 'dired-up-directory
+  (kbd "M-RET") 'dired-display-file)
 
 ;; comments
 (map! "C-/" #'comment-line)
